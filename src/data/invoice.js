@@ -3,7 +3,7 @@ export const invoice =
     id:1,
     name: 'Componentes pc',
     client:{
-        name:'pepe',
+        name:'Pepe',
         lastname:'Lara',
         address:{
             country:'Colombia',
@@ -18,16 +18,19 @@ export const invoice =
         },
         items:[
             {
+                id:1,
                 product:'Cpu Intel',
                 price:1,
                 quantity:2
             },
             {
+                id:2,
                 product:'Mouse',
                 price:145,
                 quantity:12342
             },
             {
+                id:3,
                 product:'Monitor',
                 price:100,
                 quantity:200
