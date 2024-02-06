@@ -4,9 +4,34 @@ import { ClientView } from "./components/ClienteView";
 import { CompanyView } from "./components/CompanyView";
 import { ItemsView } from "./components/ItemsView";
 import { TotalView } from "./components/TotalView";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 export const InvoiceApp = () => {
-    const {total,id,name,client,company,items:itemsInitial} = getInvoice();
+    const [invoice,setInvoice]= useState({
+            id:0,
+            name: '',
+            client:{
+                name:'',
+                lastname:'',
+                address:{
+                    country:'',
+                    city:'',
+                    street:'',
+                    number:0
+                } 
+            },
+            company:{
+                name:'',
+                fiscalNumber:0
+            },
+            items:[]
+        });
+        useEffect(()=>{
+            const data =getInvoice();//para cargar datos una sola vez
+            setInvoice(data);
+        },[])
+    
+    const {total,id,name,client,company,items:itemsInitial} =invoice;
 
     const [invoiceItemsState, setInvoiceItemsState]=useState({
         product:'',
